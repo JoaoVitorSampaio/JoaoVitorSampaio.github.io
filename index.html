@@ -50,14 +50,42 @@ a:hover{text-decoration:underline;}
 /* ---------- NAV ---------- */
 .nav{border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:40;}
 .nav-in{
-  max-width:var(--maxw);margin:0 auto;padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  max-width:1440px;margin:0 auto;padding:0 clamp(20px,3.5vw,44px);
+  min-height:74px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(14px,2.5vw,40px);flex-wrap:wrap;
 }
-.nav-brand{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--text);}
-.nav-brand a{color:var(--accent);}
-.nav-links{display:flex;gap:18px;flex-wrap:wrap;}
-.nav-links a{font-size:14.5px;color:var(--text-2);}
-.nav-links a:hover{color:var(--accent);}
+.nav-brand{
+  font-size:17px;letter-spacing:.02em;color:var(--text);
+  text-transform:uppercase;white-space:nowrap;font-weight:400;
+}
+.nav-brand b{font-weight:600;letter-spacing:.01em;}
+.nav-links{display:flex;align-items:center;gap:clamp(16px,2.6vw,44px);flex-wrap:wrap;}
+.nav-links a{
+  font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--mute);white-space:nowrap;transition:color .18s;
+}
+.nav-links a:hover{color:var(--text);text-decoration:none;}
+.lang{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--line);
+}
+.lang b{color:var(--text);font-weight:600;}
+.lang a{color:var(--mute);}
+.lang a:hover{color:var(--text);text-decoration:none;}
+.nav-cv{
+  display:inline-flex;align-items:center;
+  border:1px solid var(--text);padding:10px 16px;
+  font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--text);transition:background .18s,color .18s;
+}
+.nav-cv:hover{background:var(--text);color:#fff;text-decoration:none;}
+@media(max-width:760px){
+  .nav-in{padding-block:12px;min-height:0;}
+  .nav-brand{font-size:15px;}
+  .nav-links{gap:14px;}
+  .nav-links a{font-size:11.5px;letter-spacing:.08em;}
+}
 
 /* ---------- HERO ---------- */
 .hero{padding-block:44px 8px;display:grid;grid-template-columns:180px 1fr;gap:34px;align-items:start;}
@@ -119,6 +147,7 @@ h3{font-family:var(--serif);font-size:18.5px;font-weight:600;margin:0 0 5px;line
 .exp-body h3{margin:0 0 2px;font-size:17px;}
 .exp-body .role{font-size:14.5px;color:var(--mute);margin:0 0 6px;font-family:var(--mono);}
 .exp-body p{margin:0;font-size:15.2px;color:var(--text-2);}
+.exp-body .role.second{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);}
 
 /* tecnologias */
 .tech-group{margin-bottom:22px;}
@@ -182,15 +211,17 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
 
 <nav class="nav">
   <div class="nav-in">
-    <div class="nav-brand"><a href="https://www.ufpb.br" target="_blank" rel="noopener">UFPB</a> · Ciência da Computação</div>
+    <div class="nav-brand"><b>UFPB</b> Ciência da Computação</div>
     <div class="nav-links">
       <a href="#inicio">Início</a>
       <a href="#pesquisa">Pesquisa</a>
-      <a href="#novidades">Novidades</a>
+      <a href="#trajetoria">Trajetória</a>
       <a href="#experiencia">Experiência</a>
       <a href="#extensao">Extensão</a>
       <a href="#projetos">Projetos</a>
       <a href="#tecnologias">Tecnologias</a>
+      <span class="lang"><b>PT</b><span>/</span><a href="en.html">EN</a></span>
+      <a class="nav-cv" href="curriculo.pdf" target="_blank" rel="noopener">Currículo</a>
     </div>
   </div>
 </nav>
@@ -268,12 +299,16 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
   </section>
 
   <!-- ---------- NOVIDADES ---------- -->
-  <section id="novidades">
-    <h2>Novidades</h2>
+  <section id="trajetoria">
+    <h2>Minha trajetória</h2>
     <div class="news">
       <div class="news-row">
         <div class="news-date">Set<b>2026</b></div>
         <div class="news-body">Começo como <strong>estagiário full stack na CODATA</strong>, a companhia de processamento de dados do estado da Paraíba, trabalhando com análise de performance de sistemas públicos.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Jul<b>2026</b></div>
+        <div class="news-body">Passei para a <strong>diretoria de visão computacional da TAIL</strong>, em nova rotação dentro da liga.</div>
       </div>
       <div class="news-row">
         <div class="news-date">Mai<b>2026</b></div>
@@ -289,7 +324,7 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
       </div>
       <div class="news-row">
         <div class="news-date">Jul<b>2025</b></div>
-        <div class="news-body">Entrei na diretoria de esportes da <strong>TAIL</strong>, a primeira liga acadêmica de inteligência artificial do Nordeste.</div>
+        <div class="news-body">Entrei na diretoria de esportes da <strong>TAIL</strong>, a primeira liga acadêmica de inteligência artificial do Nordeste, onde apliquei ciência de dados ao futebol até dezembro.</div>
       </div>
       <div class="news-row">
         <div class="news-date">Dez<b>2023</b></div>
@@ -309,6 +344,17 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
           <h3>CODATA, Companhia de Processamento de Dados da Paraíba</h3>
           <p class="role">Estagiário Full Stack · a partir de set/2026</p>
           <p>Desenvolvimento em Python com foco em análise de performance de sistemas do governo estadual: pipelines de coleta, processamento e visualização de métricas em produção.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img src="logo-tail.png" alt="TAIL" /></div>
+        <div class="exp-body">
+          <h3>TAIL, Technology and Artificial Intelligence League</h3>
+          <p class="role">Diretoria de Visão Computacional · desde jul/2026</p>
+          <p>Rotação atual dentro da liga, trabalhando com visão computacional.</p>
+          <p class="role second">Diretoria de Esportes · jul/2025 a dez/2025</p>
+          <p>Ciência de dados aplicada ao futebol do começo ao fim: ETL de FBref, ClubElo e SofaScore, análise exploratória, modelagem de xG e um sistema de recomendação de contratações. Resultou no Football Player Recommendation System, construído sobre dados do FBref.</p>
         </div>
       </div>
 
@@ -345,15 +391,6 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
           <h3>Connecta CI, Centro de Informática da UFPB</h3>
           <p class="role">Fundador e Diretor de Marketing · desde ago/2025</p>
           <p>Hub de inovação colaborativa que aproxima estudantes do mercado. Lidero comunicação, orçamento e planejamento, e busco parcerias que virem estágio e evento para a comunidade.</p>
-        </div>
-      </div>
-
-      <div class="exp-row">
-        <div class="exp-logo"><img src="logo-tail.png" alt="TAIL" /></div>
-        <div class="exp-body">
-          <h3>TAIL, Technology and Artificial Intelligence League</h3>
-          <p class="role">Diretoria de Esportes · desde jul/2025</p>
-          <p>Ciência de dados aplicada ao futebol do começo ao fim: ETL de FBref, ClubElo e SofaScore, análise exploratória, modelagem de xG e um sistema de recomendação de contratações.</p>
         </div>
       </div>
 
@@ -468,7 +505,7 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
         <div class="tech"><img src="https://cdn.simpleicons.org/javascript" alt="" /><span>JavaScript</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/typescript" alt="" /><span>TypeScript</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/haskell" alt="" /><span>Haskell</span></div>
-        <div class="tech"><img src="https://cdn.simpleicons.org/swi-prolog" alt="" /><span>Prolog</span></div>
+        <div class="tech"><img src="icon-prolog.png" alt="" /><span>Prolog</span></div>
       </div>
     </div>
 
@@ -481,7 +518,7 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
         <div class="tech"><img src="https://cdn.simpleicons.org/plotly" alt="" /><span>Plotly</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/jupyter" alt="" /><span>Jupyter</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/langchain" alt="" /><span>LangGraph</span></div>
-        <div class="tech"><img src="https://cdn.simpleicons.org/memgraph" alt="" /><span>Memgraph</span></div>
+        <div class="tech"><img src="icon-memgraph.png" alt="" /><span>Memgraph</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/chainguard" alt="" /><span>SHAP</span></div>
       </div>
     </div>
@@ -511,7 +548,7 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
     <ul class="plain">
       <li><b>Ciência da Computação</b> na Universidade Federal da Paraíba, de 2023 a 2027. CRA 8,58.</li>
       <li><b>Apresentação de artigo</b> no CSBC 2025, VI Workshop Brasileiro de Lógica (jul/2025).</li>
-      <li><b>Primeiro lugar</b> nas Olimpíadas InterGeo, com bolsa de estudos no ano seguinte.</li>
+      <li><b>Primeiro lugar</b> nas Olimpíadas InterGeo em 2015, com bolsa de estudos no ano seguinte.</li>
       <li><b>Eventos técnicos:</b> Web Summit Spotlight Paraíba, II Simpósio Estadual de Saúde Digital, AI Bridge/IEEE (staff, 2024), NEON (2024), CSBC (2023) e Expotec (2023).</li>
     </ul>
   </section>
@@ -520,9 +557,10 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
   <section id="pessoal" class="off">
     <h2>Fora do código</h2>
     <p>
-      Corro na orla, pedalo e treino. É correndo que eu costumo destravar problema que empacou no
-      computador. Sou de arquibancada, não só de planilha. E fui catequista de crisma por quase
-      quatro anos, o que me ensinou a explicar coisa difícil melhor do que qualquer disciplina.
+      Gosto de correr, pedalar e treinar. É correndo que eu costumo destravar problema que empacou
+      no computador. Sou apaixonado e sofredor por futebol, gosto da arquibancada. Sou religioso,
+      fui catequista de crisma por quase quatro anos, o que me ensinou a ensinar, acolher e a ser
+      cristão durante minha vida.
     </p>
     <div class="strip">
       <figure><div class="f"><img src="foto-csbc.jpg" alt="No CSBC 2025, em Maceió" loading="lazy" /></div><figcaption>CSBC 2025</figcaption></figure>
