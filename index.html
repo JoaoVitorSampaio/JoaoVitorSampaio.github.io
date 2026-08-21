@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>João Vitor Sampaio Costa | Ciência da Computação, UFPB</title>
+<meta name="description" content="Estudante de Ciência da Computação na UFPB. Ciência de dados aplicada ao futebol, engenharia de software e saúde digital. Artigo publicado pela SBC." />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:title" content="João Vitor Sampaio Costa" />
+<meta property="og:description" content="Ciência de dados, engenharia de software e pesquisa aplicada. UFPB, João Pessoa - PB." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#ffffff;
+  --bg-2:#f7f8fa;
+  --text:#16181d;
+  --text-2:#3e4451;
+  --mute:#6b7280;
+  --line:#e4e7ec;
+  --accent:#1d4ed8;
+  --accent-soft:#eef3ff;
+
+  --serif:"Source Serif 4", Georgia, serif;
+  --sans:"IBM Plex Sans", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+
+  --maxw:820px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-size:16.5px;line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+::selection{background:var(--accent-soft);}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px;}
+
+/* ---------- NAV ---------- */
+.nav{border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:40;}
+.nav-in{
+  max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.nav-brand{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--text);}
+.nav-brand a{color:var(--accent);}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap;}
+.nav-links a{font-size:14.5px;color:var(--text-2);}
+.nav-links a:hover{color:var(--accent);}
+
+/* ---------- HERO ---------- */
+.hero{padding-block:44px 8px;display:grid;grid-template-columns:180px 1fr;gap:34px;align-items:start;}
+@media(max-width:640px){.hero{grid-template-columns:1fr;gap:22px;}}
+.hero img{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:50% 30%;border:1px solid var(--line);}
+.hero h1{font-family:var(--serif);font-size:34px;font-weight:700;letter-spacing:-.01em;margin:0 0 4px;line-height:1.15;}
+.hero .sub{font-size:15px;color:var(--mute);margin:0 0 18px;}
+.hero p{margin:0 0 14px;color:var(--text-2);}
+
+/* ---------- SECTIONS ---------- */
+section{padding-block:34px;}
+h2{
+  font-family:var(--serif);font-size:25px;font-weight:700;letter-spacing:-.01em;
+  margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--line);
+}
+h3{font-family:var(--serif);font-size:18.5px;font-weight:600;margin:0 0 5px;line-height:1.32;}
+
+/* entry (pesquisa / projetos) */
+.entry{margin-bottom:28px;}
+.entry:last-child{margin-bottom:0;}
+.entry .kw{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 9px;}
+.kw span{
+  font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  background:var(--accent-soft);color:var(--accent);
+  padding:2px 8px;border-radius:3px;
+}
+.entry p{margin:0 0 9px;color:var(--text-2);font-size:15.6px;}
+.entry .meta{font-size:14.5px;color:var(--mute);margin:0 0 9px;}
+.refs{font-size:14.5px;color:var(--mute);}
+.refs a{font-weight:500;}
+
+/* news */
+.news{display:grid;gap:2px;}
+.news-row{display:grid;grid-template-columns:88px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);}
+.news-row:last-child{border-bottom:0;}
+@media(max-width:560px){.news-row{grid-template-columns:1fr;gap:4px;}}
+.news-date{font-family:var(--mono);font-size:12.5px;color:var(--mute);line-height:1.45;padding-top:3px;}
+.news-date b{display:block;color:var(--text);font-weight:500;}
+.news-body{font-size:15.5px;color:var(--text-2);}
+.news-body strong{color:var(--text);font-weight:600;}
+
+/* experiência com logos */
+.exp{display:grid;gap:0;}
+.exp-row{
+  display:grid;grid-template-columns:112px 1fr;gap:22px;align-items:center;
+  padding:18px 0;border-bottom:1px solid var(--line);
+}
+.exp-row:last-child{border-bottom:0;}
+@media(max-width:560px){.exp-row{grid-template-columns:84px 1fr;gap:16px;}}
+.exp-logo{
+  height:46px;display:flex;align-items:center;justify-content:center;
+}
+.exp-logo img{max-height:46px;width:auto;object-fit:contain;}
+.exp-logo img.tile{border-radius:8px;border:1px solid var(--line);}
+.exp-logo .mark{
+  font-family:var(--serif);font-size:19px;font-weight:700;color:var(--text);
+  letter-spacing:-.01em;text-align:center;line-height:1.1;
+}
+.exp-body h3{margin:0 0 2px;font-size:17px;}
+.exp-body .role{font-size:14.5px;color:var(--mute);margin:0 0 6px;font-family:var(--mono);}
+.exp-body p{margin:0;font-size:15.2px;color:var(--text-2);}
+
+/* tecnologias */
+.tech-group{margin-bottom:22px;}
+.tech-group:last-child{margin-bottom:0;}
+.tech-label{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mute);margin-bottom:12px;
+}
+.tech-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;}
+@media(max-width:720px){.tech-grid{grid-template-columns:repeat(5,1fr);}}
+@media(max-width:440px){.tech-grid{grid-template-columns:repeat(4,1fr);}}
+.tech{
+  border:1px solid var(--line);border-radius:8px;background:var(--bg);
+  padding:12px 4px 9px;text-align:center;
+  transition:border-color .2s, box-shadow .2s, transform .2s;
+}
+.tech:hover{border-color:#c9d2e3;box-shadow:0 6px 16px -10px rgba(22,24,29,.35);transform:translateY(-2px);}
+.tech img{width:26px;height:26px;margin:0 auto 8px;filter:grayscale(1);opacity:.72;transition:filter .25s,opacity .25s;}
+.tech:hover img{filter:none;opacity:1;}
+.tech .fb{
+  width:26px;height:26px;margin:0 auto 8px;border-radius:5px;
+  background:var(--accent-soft);color:var(--accent);
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  display:flex;align-items:center;justify-content:center;
+}
+.tech span{font-family:var(--mono);font-size:10.5px;color:var(--text-2);display:block;line-height:1.3;}
+
+/* listas simples */
+.plain{list-style:none;margin:0;padding:0;}
+.plain li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--text-2);}
+.plain li:last-child{border-bottom:0;}
+.plain b{color:var(--text);font-weight:600;}
+
+/* fora do código */
+.off p{color:var(--text-2);margin:0 0 18px;}
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+@media(max-width:640px){.strip{grid-template-columns:repeat(3,1fr);}}
+.strip figure{margin:0;}
+.strip .f{aspect-ratio:3/4;border-radius:7px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);}
+.strip img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:filter .3s,transform .5s;}
+.strip figure:hover img{filter:none;transform:scale(1.04);}
+.strip figcaption{font-family:var(--mono);font-size:10px;color:var(--mute);margin-top:7px;line-height:1.4;}
+
+/* footer */
+footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;}
+.social{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.social a{
+  display:flex;align-items:center;gap:7px;font-size:14.5px;color:var(--text-2);
+}
+.social a:hover{color:var(--accent);}
+.social svg{width:16px;height:16px;fill:currentColor;}
+.copy{font-size:13.5px;color:var(--mute);}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition-duration:.001ms!important;}
+}
+</style>
+</head>
+<body id="inicio">
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="nav-brand"><a href="https://www.ufpb.br" target="_blank" rel="noopener">UFPB</a> · Ciência da Computação</div>
+    <div class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#pesquisa">Pesquisa</a>
+      <a href="#novidades">Novidades</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#extensao">Extensão</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#tecnologias">Tecnologias</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ---------- HERO ---------- -->
+  <div class="hero">
+    <img src="perfil.jpg" alt="João Vitor Sampaio Costa" width="520" height="520" />
+    <div>
+      <h1>João Vitor Sampaio Costa</h1>
+      <p class="sub">Ciência da Computação · UFPB · João Pessoa, Paraíba</p>
+
+      <p>
+        Sou estudante do sétimo período de Ciência da Computação na Universidade Federal
+        da Paraíba. O que me interessa é <strong>ciência de dados aplicada</strong>, ou seja,
+        modelo que precisa funcionar com dado real e com gente usando o resultado do outro lado.
+      </p>
+      <p>
+        Pesquiso predição esportiva usando programação lógica combinada com aprendizado de
+        máquina, tema do meu primeiro artigo publicado. Atuo na Suíte de Testes da TV 3.0 no
+        LAVID, sou bolsista do PET Saúde Digital em um projeto de telessaúde perinatal com o
+        Ministério da Saúde, e faço parte da diretoria de esportes da TAIL, a primeira liga
+        acadêmica de inteligência artificial do Nordeste. A partir de setembro de 2026 começo
+        como estagiário full stack na CODATA.
+      </p>
+      <p>
+        Antes da faculdade eu já vendia. Abri a JVC Sports, loja de vestuário esportivo em
+        Patos-PB, aos 16 anos. Começou online, virou espaço físico, parou quando me mudei para
+        João Pessoa e voltou a funcionar em 2026. Gosto de correr, pedalar, treinar e assistir
+        futebol. Foi assim que o futebol acabou virando o assunto dos meus projetos de pesquisa.
+      </p>
+      <p>
+        Você pode me escrever em <a href="mailto:joaovitorsampai@gmail.com">joaovitorsampai@gmail.com</a>,
+        ver meu <a href="https://github.com/JoaoVitorSampaio" target="_blank" rel="noopener">GitHub</a>
+        ou me encontrar no <a href="https://www.linkedin.com/in/joaovitorsampaiocosta/" target="_blank" rel="noopener">LinkedIn</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ---------- PESQUISA ---------- -->
+  <section id="pesquisa">
+    <h2>Pesquisa</h2>
+
+    <div class="entry">
+      <h3><a href="https://doi.org/10.5753/wbl.2025.8333" target="_blank" rel="noopener">Score Predictor: Predição de Resultados no Futebol Usando Programação Lógica</a></h3>
+      <div class="kw"><span>Programação lógica</span><span>Prolog</span><span>Predição esportiva</span></div>
+      <p class="meta">
+        Oliveira, G. B. R.; <strong>Costa, J. V. S.</strong>; Silva, T. B.; Simões, T. A.<br>
+        VI Workshop Brasileiro de Lógica (WBL), CSBC 2025, Maceió/AL. SBC, p. 24-31.
+      </p>
+      <p>
+        Um sistema de previsão de resultados do Brasileirão construído sobre uma base de regras
+        declarativas em Prolog, que estima probabilidades de vitória, empate e derrota a partir
+        de forma recente, força ofensiva e defensiva e desfalques de titulares. O trabalho nasceu
+        como projeto final de disciplina e foi apresentado no congresso.
+      </p>
+      <p class="refs">
+        [<a href="https://doi.org/10.5753/wbl.2025.8333" target="_blank" rel="noopener">DOI</a>] ·
+        [<a href="https://sol.sbc.org.br/index.php/wbl/article/view/35902" target="_blank" rel="noopener">SBC OpenLib</a>] ·
+        [<a href="https://score-predictor-ashy.vercel.app/" target="_blank" rel="noopener">Sistema ao vivo</a>]
+      </p>
+    </div>
+
+    <div class="entry">
+      <h3>Telessaúde como estratégia de análise em saúde perinatal</h3>
+      <div class="kw"><span>Saúde digital</span><span>Análise de dados</span><span>SUS</span></div>
+      <p class="meta">PET Saúde Digital, GT-12 · UFPB, Ministério da Saúde, SEIDIGI e SGTES · em andamento</p>
+      <p>
+        Projeto de pesquisa que aplica análise de dados a estratégias de telessaúde no SUS-Paraíba,
+        dentro do programa SUS Digital, buscando induzir mudanças na formação e nas práticas dos
+        serviços de saúde por meio da integração ensino-serviço-comunidade.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- NOVIDADES ---------- -->
+  <section id="novidades">
+    <h2>Novidades</h2>
+    <div class="news">
+      <div class="news-row">
+        <div class="news-date">Set<b>2026</b></div>
+        <div class="news-body">Começo como <strong>estagiário full stack na CODATA</strong>, a companhia de processamento de dados do estado da Paraíba, trabalhando com análise de performance de sistemas públicos.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Mai<b>2026</b></div>
+        <div class="news-body">Entrei na equipe da <strong>Suíte de Testes da TV 3.0</strong>, no LAVID/UFPB, trabalhando na validação de conformidade do novo padrão brasileiro de televisão digital.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Ago<b>2025</b></div>
+        <div class="news-body">Comecei como monitor bolsista no <strong>PET Saúde Digital</strong> e fundei a <strong>Connecta CI</strong>, hub de inovação colaborativa do Centro de Informática da UFPB.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Jul<b>2025</b></div>
+        <div class="news-body">Apresentei meu primeiro artigo no <strong>CSBC 2025</strong>, no VI Workshop Brasileiro de Lógica, em Maceió.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Jul<b>2025</b></div>
+        <div class="news-body">Entrei na diretoria de esportes da <strong>TAIL</strong>, a primeira liga acadêmica de inteligência artificial do Nordeste.</div>
+      </div>
+      <div class="news-row">
+        <div class="news-date">Dez<b>2023</b></div>
+        <div class="news-body">Iniciei a graduação em Ciência da Computação na UFPB, depois de sair de Patos, no sertão da Paraíba.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- EXPERIÊNCIA ---------- -->
+  <section id="experiencia">
+    <h2>Experiência</h2>
+    <div class="exp">
+
+      <div class="exp-row">
+        <div class="exp-logo"><img src="logo-codata.png" alt="CODATA" /></div>
+        <div class="exp-body">
+          <h3>CODATA, Companhia de Processamento de Dados da Paraíba</h3>
+          <p class="role">Estagiário Full Stack · a partir de set/2026</p>
+          <p>Desenvolvimento em Python com foco em análise de performance de sistemas do governo estadual: pipelines de coleta, processamento e visualização de métricas em produção.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img src="logo-lavid.png" alt="LAVID" /></div>
+        <div class="exp-body">
+          <h3>LAVID, UFPB</h3>
+          <p class="role">Suíte de Testes da TV 3.0 · desde mai/2026</p>
+          <p>Validação de conformidade do padrão brasileiro de TV 3.0, com foco em especificação, reprodutibilidade e teste sistemático.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img class="tile" src="logo-jvcsports.png" alt="JVC Sports" /></div>
+        <div class="exp-body">
+          <h3>JVC Sports</h3>
+          <p class="role">Fundador e proprietário · jan/2022 a jun/2024, e desde abr/2026</p>
+          <p>Loja de vestuário esportivo e casual em Patos-PB, que comecei aos 16 anos. Nasceu só online e, com a demanda, virou espaço físico. Fechei as atividades ao me mudar para João Pessoa por causa da faculdade e retomei o negócio em abril de 2026. Foi ali que aprendi vendas, precificação, organização financeira, tráfego pago e criação de conteúdo. Depois construí o próprio sistema de estoque e vendas da loja.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img src="logo-petsaude.png" alt="PET-Saúde Informação e Saúde Digital" /></div>
+        <div class="exp-body">
+          <h3>PET Saúde Digital, UFPB e Ministério da Saúde</h3>
+          <p class="role">Monitor bolsista, GT-12 · desde ago/2025</p>
+          <p>Telessaúde como estratégia de análise em saúde perinatal, em parceria com SEIDIGI e SGTES sob os princípios do programa SUS Digital.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img class="tile" src="logo-connecta.png" alt="Connecta CI" /></div>
+        <div class="exp-body">
+          <h3>Connecta CI, Centro de Informática da UFPB</h3>
+          <p class="role">Fundador e Diretor de Marketing · desde ago/2025</p>
+          <p>Hub de inovação colaborativa que aproxima estudantes do mercado. Lidero comunicação, orçamento e planejamento, e busco parcerias que virem estágio e evento para a comunidade.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img src="logo-tail.png" alt="TAIL" /></div>
+        <div class="exp-body">
+          <h3>TAIL, Technology and Artificial Intelligence League</h3>
+          <p class="role">Diretoria de Esportes · desde jul/2025</p>
+          <p>Ciência de dados aplicada ao futebol do começo ao fim: ETL de FBref, ClubElo e SofaScore, análise exploratória, modelagem de xG e um sistema de recomendação de contratações.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img class="tile" src="logo-impacta.png" alt="Impacta Telecom" /></div>
+        <div class="exp-body">
+          <h3>IMPACTA Telecom e Segurança</h3>
+          <p class="role">Estagiário de TI · set/2025 a abr/2026</p>
+          <p>Infraestrutura de redes, CFTV e software de inteligência de vídeo. Acompanhei licitações públicas de TI, do pregão eletrônico à documentação técnica de cada edital.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ---------- EXTENSÃO ---------- -->
+  <section id="extensao">
+    <h2>Projetos de extensão</h2>
+    <div class="exp">
+
+      <div class="exp-row">
+        <div class="exp-logo"><img src="logo-ieee.png" alt="IEEE Computational Intelligence Society e Computer Society, UFPB Student Branch Joint Chapter" /></div>
+        <div class="exp-body">
+          <h3>Auxílio Tecnológico para Promoção da Atividade Física entre Pessoas com Lesão Medular</h3>
+          <p class="role">Pesquisador de graduação · IEEE CS and CIS Chapter, UFPB · ago/2024 a out/2025</p>
+          <p>Plataforma desenvolvida em colaboração com o Comitê Paralímpico Brasileiro para acompanhar participantes com lesão medular. O sistema exibe velocidade instantânea e média, distância percorrida, gráfico de esforço e duração da atividade, com envio ao celular do participante e armazenamento para relatórios. Contribuí com UX/UI e identidade visual da aplicação, no Figma.</p>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-logo"><img class="tile" src="logo-cangaco.png" alt="Cangaço no Espaço, UFPB" /></div>
+        <div class="exp-body">
+          <h3>Cangaço no Espaço, foguetaria universitária</h3>
+          <p class="role">Diretoria de Propulsão e Propelente · Laboratório LMI, UFPB · fev a jun/2025</p>
+          <p>Projeto de extensão em aeroespacial que reúne professores e estudantes de engenharia, ciência e tecnologia para competir no Brasil e no exterior. Na diretoria de propulsão, desenvolvemos o motor do zero: cálculo estrutural, escolha de materiais, desenho, montagem e testes, além da otimização do sistema para garantir segurança no lançamento e no voo.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ---------- PROJETOS ---------- -->
+  <section id="projetos">
+    <h2>Projetos em destaque</h2>
+
+    <div class="entry">
+      <h3><a href="https://score-predictor-ashy.vercel.app/" target="_blank" rel="noopener">Score Predictor</a></h3>
+      <div class="kw"><span>Prolog</span><span>Machine Learning</span><span>Futebol</span></div>
+      <p>
+        Sistema de previsão para o Brasileirão, hoje na versão v3.2. Além de gerar as previsões
+        automaticamente e travá-las antes do apito inicial, o sistema compara as próprias
+        probabilidades com as odds implícitas das casas de apostas ao longo da temporada. Isso
+        transforma a avaliação num teste honesto, e não só num número de acurácia.
+      </p>
+      <p class="refs">[<a href="https://score-predictor-ashy.vercel.app/" target="_blank" rel="noopener">Sistema</a>] · [<a href="https://doi.org/10.5753/wbl.2025.8333" target="_blank" rel="noopener">Artigo</a>]</p>
+    </div>
+
+    <div class="entry">
+      <h3>Football Player Recommendation System</h3>
+      <div class="kw"><span>Sistemas de recomendação</span><span>FBref</span><span>xG</span></div>
+      <p>
+        Recomendação de contratações no estilo <em>Sensible Transfers</em>, desenvolvido na TAIL.
+        A partir da necessidade tática e do estilo de jogo de uma equipe, o sistema busca candidatos
+        em ligas diferentes e aplica técnicas de similaridade para encontrar os jogadores mais
+        compatíveis, entregando um relatório de scouting completo.
+      </p>
+    </div>
+
+    <div class="entry">
+      <h3>Valora.ai</h3>
+      <div class="kw"><span>Regressão</span><span>SHAP</span><span>Interpretabilidade</span></div>
+      <p>
+        Previsão de valores de imóveis com aprendizado de máquina. O foco não é só acurácia:
+        uso permutation importance e valores SHAP para separar o efeito real de cada atributo e
+        investigar a colinearidade entre variáveis como número de suítes, área e bairro.
+      </p>
+    </div>
+
+    <div class="entry">
+      <h3>Sistema de estoque e vendas da JVC Sports</h3>
+      <div class="kw"><span>React</span><span>Supabase</span><span>LLM</span></div>
+      <p>
+        Sistema que construí para a minha própria loja: controle de estoque e vendas com visão de
+        produtos agrupada por SKU, modal de detalhe da venda e sugestões geradas por IA. É o projeto
+        em que cliente, requisito e desenvolvedor são a mesma pessoa. Isso me obrigou a decidir o
+        que realmente importava, em vez de sair listando funcionalidade.
+      </p>
+    </div>
+
+    <div class="entry">
+      <h3>RealEstate Expert</h3>
+      <div class="kw"><span>Knowledge Graph</span><span>GraphRAG</span><span>LangGraph</span></div>
+      <p>
+        Sistema especialista sobre o mercado imobiliário de João Pessoa, combinando um Knowledge
+        Graph em Memgraph/Cypher, GraphRAG, RAG documental em ChromaDB e orquestração de LLM com
+        LangGraph, servido por FastAPI. Inclui um validador de Cypher como contrato anti-alucinação.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- TECNOLOGIAS ---------- -->
+  <section id="tecnologias">
+    <h2>Tecnologias</h2>
+
+    <div class="tech-group">
+      <div class="tech-label">Linguagens</div>
+      <div class="tech-grid">
+        <div class="tech"><img src="https://cdn.simpleicons.org/python" alt="" /><span>Python</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/c" alt="" /><span>C</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/cplusplus" alt="" /><span>C++</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/openjdk" alt="" /><span>Java</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/javascript" alt="" /><span>JavaScript</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/typescript" alt="" /><span>TypeScript</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/haskell" alt="" /><span>Haskell</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/swi-prolog" alt="" /><span>Prolog</span></div>
+      </div>
+    </div>
+
+    <div class="tech-group">
+      <div class="tech-label">Dados e Inteligência Artificial</div>
+      <div class="tech-grid">
+        <div class="tech"><img src="https://cdn.simpleicons.org/pandas" alt="" /><span>pandas</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/numpy" alt="" /><span>NumPy</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/scikitlearn" alt="" /><span>scikit-learn</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/plotly" alt="" /><span>Plotly</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/jupyter" alt="" /><span>Jupyter</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/langchain" alt="" /><span>LangGraph</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/memgraph" alt="" /><span>Memgraph</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/chainguard" alt="" /><span>SHAP</span></div>
+      </div>
+    </div>
+
+    <div class="tech-group">
+      <div class="tech-label">Engenharia</div>
+      <div class="tech-grid">
+        <div class="tech"><img src="https://cdn.simpleicons.org/react" alt="" /><span>React</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" /><span>Node.js</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/fastapi" alt="" /><span>FastAPI</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/spring" alt="" /><span>Spring</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/postgresql" alt="" /><span>PostgreSQL</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/supabase" alt="" /><span>Supabase</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/docker" alt="" /><span>Docker</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/grafana" alt="" /><span>Grafana</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/git" alt="" /><span>Git</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/github" alt="" /><span>GitHub</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/linux" alt="" /><span>Linux</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/figma" alt="" /><span>Figma</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- FORMAÇÃO E RECONHECIMENTOS ---------- -->
+  <section id="formacao">
+    <h2>Formação e reconhecimentos</h2>
+    <ul class="plain">
+      <li><b>Ciência da Computação</b> na Universidade Federal da Paraíba, de 2023 a 2027. CRA 8,58.</li>
+      <li><b>Apresentação de artigo</b> no CSBC 2025, VI Workshop Brasileiro de Lógica (jul/2025).</li>
+      <li><b>Primeiro lugar</b> nas Olimpíadas InterGeo, com bolsa de estudos no ano seguinte.</li>
+      <li><b>Eventos técnicos:</b> Web Summit Spotlight Paraíba, II Simpósio Estadual de Saúde Digital, AI Bridge/IEEE (staff, 2024), NEON (2024), CSBC (2023) e Expotec (2023).</li>
+    </ul>
+  </section>
+
+  <!-- ---------- FORA DO CÓDIGO ---------- -->
+  <section id="pessoal" class="off">
+    <h2>Fora do código</h2>
+    <p>
+      Corro na orla, pedalo e treino. É correndo que eu costumo destravar problema que empacou no
+      computador. Sou de arquibancada, não só de planilha. E fui catequista de crisma por quase
+      quatro anos, o que me ensinou a explicar coisa difícil melhor do que qualquer disciplina.
+    </p>
+    <div class="strip">
+      <figure><div class="f"><img src="foto-csbc.jpg" alt="No CSBC 2025, em Maceió" loading="lazy" /></div><figcaption>CSBC 2025</figcaption></figure>
+      <figure><div class="f"><img src="foto-websummit.jpg" alt="No Web Summit Spotlight Paraíba" loading="lazy" /></div><figcaption>Spotlight Paraíba</figcaption></figure>
+      <figure><div class="f"><img src="foto-crisma.jpg" alt="Conduzindo um encontro de catequese" loading="lazy" /></div><figcaption>Catequese</figcaption></figure>
+      <figure><div class="f"><img src="foto-corrida.jpg" alt="Correndo na orla de João Pessoa" loading="lazy" /></div><figcaption>Corrida</figcaption></figure>
+      <figure><div class="f"><img src="foto-estadio.jpg" alt="Na arquibancada" loading="lazy" /></div><figcaption>Arquibancada</figcaption></figure>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="social">
+      <a href="mailto:joaovitorsampai@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>E-mail
+      </a>
+      <a href="https://github.com/JoaoVitorSampaio" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.8 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.7 1.2 3.4.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.8-5.8 7.8-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/joaovitorsampaiocosta/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>LinkedIn
+      </a>
+      <a href="https://www.instagram.com/jvsampaioc/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm8.4-11.2a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg>Instagram
+      </a>
+    </div>
+    <div class="copy">© 2026 João Vitor Sampaio Costa · João Pessoa, Paraíba</div>
+  </div>
+</footer>
+
+<script>
+/* Se algum logo do CDN não existir, troca por um selo com a inicial */
+document.querySelectorAll('.tech img').forEach(function(img){
+  img.addEventListener('error', function(){
+    var name = img.nextElementSibling ? img.nextElementSibling.textContent.trim() : '?';
+    var fb = document.createElement('div');
+    fb.className = 'fb';
+    fb.textContent = name.charAt(0).toUpperCase();
+    img.replaceWith(fb);
+  });
+});
+</script>
+</body>
+</html>
