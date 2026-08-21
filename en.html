@@ -67,13 +67,19 @@ a:hover{text-decoration:underline;}
 }
 .nav-links a:hover{color:var(--text);text-decoration:none;}
 .lang{
-  display:inline-flex;align-items:center;gap:9px;
-  border:1px solid var(--text);padding:9px 15px;
-  font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--line);
 }
 .lang b{color:var(--text);font-weight:600;}
 .lang a{color:var(--mute);}
 .lang a:hover{color:var(--text);text-decoration:none;}
+.nav-cv{
+  display:inline-flex;align-items:center;
+  border:1px solid var(--text);padding:10px 16px;
+  font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--text);transition:background .18s,color .18s;
+}
+.nav-cv:hover{background:var(--text);color:#fff;text-decoration:none;}
 @media(max-width:760px){
   .nav-in{padding-block:12px;min-height:0;}
   .nav-brand{font-size:15px;}
@@ -214,7 +220,8 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
       <a href="#extensao">Outreach</a>
       <a href="#projetos">Projects</a>
       <a href="#tecnologias">Tech</a>
-      <span class="lang"><a href="index.html">PT</a><b>EN</b></span>
+      <span class="lang"><a href="index.html">PT</a><span>/</span><b>EN</b></span>
+      <a class="nav-cv" href="curriculo.pdf" target="_blank" rel="noopener">CV</a>
     </div>
   </div>
 </nav>
