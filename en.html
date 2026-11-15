@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>João Vitor Sampaio Costa | Computer Science, UFPB</title>
-<meta name="description" content="Computer Science undergraduate at UFPB, Brazil. Applied data science in football, software engineering and digital health. Paper published by the Brazilian Computer Society." />
+<meta name="description" content="Computer Science undergraduate at UFPB, Brazil. Artificial intelligence, computer vision, data science and software engineering. Paper published by the Brazilian Computer Society." />
 <meta name="theme-color" content="#ffffff" />
 <meta property="og:title" content="João Vitor Sampaio Costa" />
-<meta property="og:description" content="Data science, software engineering and applied research. UFPB, João Pessoa, Brazil." />
+<meta property="og:description" content="Applied AI, computer vision, data science and software engineering. UFPB, João Pessoa, Brazil." />
 <meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -242,16 +242,18 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
 
       <p>
         I am 21 and a seventh-semester Computer Science undergraduate at the Federal University
-        of Paraíba, in Brazil. What interests me is <strong>applied data science</strong>: models that
+        of Paraíba, in Brazil. What interests me is <strong>applied AI and data science</strong>: models that
         have to hold up against real data, with real people using the output on the other end.
       </p>
       <p>
-        My research is on sports prediction using logic programming combined with machine
-        learning, which was the subject of my first published paper. I work on the TV 3.0 Test
-        Suite at LAVID, hold a research scholarship at PET Saúde Digital on a perinatal telehealth
-        project with the Brazilian Ministry of Health, and serve on the computer vision board of
-        TAIL, the first academic AI league in the Brazilian Northeast. In September 2026 I start
-        as a full stack intern at CODATA, the state data processing company of Paraíba.
+        I am a full stack intern at CODATA, the state data processing company of Paraíba, where I
+        work with OCR, RAG and model fine-tuning, including a pipeline that processes the documents
+        of the Paraíba Official Gazette. I work on the TV 3.0 Test Suite at LAVID, hold a research
+        scholarship at PET Saúde Digital on a perinatal telehealth project with the Brazilian
+        Ministry of Health, and serve on the computer vision board of TAIL, the first academic AI
+        league in the Brazilian Northeast, where I work on video analysis for 3x3 basketball. I also
+        research sports prediction using logic programming combined with machine learning, which
+        was the subject of my first published paper.
       </p>
       <p>
         I was selling things before university. I started JVC Sports, a sportswear store in
@@ -310,11 +312,11 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
     <div class="news">
       <div class="news-row">
         <div class="news-date">Sep<b>2026</b></div>
-        <div class="news-body">I start as a <strong>full stack intern at CODATA</strong>, the data processing company of the state of Paraiba, working on performance analysis of public sector systems.</div>
+        <div class="news-body">Started as a <strong>full stack intern at CODATA</strong>, the data processing company of the state of Paraiba, working with OCR, RAG and model fine-tuning.</div>
       </div>
       <div class="news-row">
         <div class="news-date">Jul<b>2026</b></div>
-        <div class="news-body">Moved to the <strong>computer vision board at TAIL</strong>, a new rotation within the league.</div>
+        <div class="news-body">Moved to the <strong>computer vision board at TAIL</strong>, where I work on video analysis for 3x3 basketball.</div>
       </div>
       <div class="news-row">
         <div class="news-date">May<b>2026</b></div>
@@ -348,8 +350,8 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
         <div class="exp-logo"><img src="logo-codata.png" alt="CODATA" /></div>
         <div class="exp-body">
           <h3>CODATA, State Data Processing Company of Paraiba</h3>
-          <p class="role">Full Stack Intern · from Sep 2026</p>
-          <p>Python development focused on performance analysis of state government systems: pipelines for collecting, processing and visualising production metrics.</p>
+          <p class="role">Full Stack Intern · since Sep 2026</p>
+          <p>An automated pipeline for ingestion, semantic segmentation and metadata extraction of documents from the Official Gazette of the State of Paraiba (DOE-PB), using Detectron2 for layout analysis, multi-backend OCR for text extraction and LLMs with structured validation for metadata consolidation. I also work with RAG, fine-tuning and benchmark-based evaluation of AI models, as well as back-end development in Python and Django, with Docker.</p>
         </div>
       </div>
 
@@ -358,7 +360,7 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
         <div class="exp-body">
           <h3>TAIL, Technology and Artificial Intelligence League</h3>
           <p class="role">Computer Vision Board · since Jul 2026</p>
-          <p>Current rotation within the league, working on computer vision.</p>
+          <p>Computer vision for 3x3 basketball performance analysis: a video pipeline with YOLO, ByteTrack, court homography, team classification and jersey number OCR that turns match footage into structured data. I also drive the project's technical roadmap, from video data extraction to player-level insights and scouting applications.</p>
           <p class="role second">Sports Board · Jul 2025 to Dec 2025</p>
           <p>Applied data science in football end to end: ETL from FBref, ClubElo and SofaScore, exploratory analysis, xG modelling and a transfer recommendation system. It produced the Football Player Recommendation System, built on FBref data.</p>
         </div>
@@ -441,6 +443,17 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
   <!-- ---------- PROJETOS ---------- -->
   <section id="projetos">
     <h2>Selected projects</h2>
+
+    <div class="entry">
+      <h3>3x3 basketball analytics with computer vision</h3>
+      <div class="kw"><span>YOLO</span><span>ByteTrack</span><span>Homography</span><span>OCR</span></div>
+      <p>
+        A pipeline developed at TAIL that turns 3x3 basketball match footage into structured data.
+        It detects and tracks players, maps their positions onto the court through homography,
+        separates the teams and reads jersey numbers with OCR. The goal is to reach player-level
+        metrics and scouting reports.
+      </p>
+    </div>
 
     <div class="entry">
       <h3><a href="https://score-predictor-ashy.vercel.app/" target="_blank" rel="noopener">Score Predictor</a></h3>
@@ -531,10 +544,23 @@ footer{border-top:1px solid var(--line);margin-top:26px;padding-block:26px 40px;
     </div>
 
     <div class="tech-group">
+      <div class="tech-label">Computer vision and LLMs</div>
+      <div class="tech-grid">
+        <div class="tech"><div class="fb">D2</div><span>Detectron2</span></div>
+        <div class="tech"><div class="fb">YO</div><span>YOLO</span></div>
+        <div class="tech"><div class="fb">BT</div><span>ByteTrack</span></div>
+        <div class="tech"><div class="fb">Aa</div><span>OCR</span></div>
+        <div class="tech"><div class="fb">RG</div><span>RAG</span></div>
+        <div class="tech"><div class="fb">FT</div><span>Fine-tuning</span></div>
+      </div>
+    </div>
+
+    <div class="tech-group">
       <div class="tech-label">Engineering</div>
       <div class="tech-grid">
         <div class="tech"><img src="https://cdn.simpleicons.org/react" alt="" /><span>React</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" /><span>Node.js</span></div>
+        <div class="tech"><img src="https://cdn.simpleicons.org/django" alt="" /><span>Django</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/fastapi" alt="" /><span>FastAPI</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/spring" alt="" /><span>Spring</span></div>
         <div class="tech"><img src="https://cdn.simpleicons.org/postgresql" alt="" /><span>PostgreSQL</span></div>
